@@ -1,0 +1,1441 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GuiLib</name>
+    </assembly>
+    <members>
+        <member name="T:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement">
+            <summary>
+            All Gui elements implement at least this interface.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Destroy">
+            <summary>
+            Destroy the gui element.
+            Removes all behaviours and event listeners.
+            After it is destroy it can not be used again, meaning it must not be added to the stage again.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Draw">
+            <summary>
+            Draws the gui element
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)">
+            <summary>
+            Add a behaviour
+            </summary>
+            <param name="behaviour"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.RemoveBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)">
+            <summary>
+            Remove a behaviour
+            </summary>
+            <param name="behaviour"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.RemoveAllBehaviours">
+            <summary>
+            Remove all behaviours
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetHAlign">
+            <summary>
+            Get horizonal align
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetHAlign(De.Kjg.UnityLib.Gui.HorizontalAlign)">
+            <summary>
+            Set horizontal align
+            </summary>
+            <param name="hAlign">Use HorizontalAlign enum</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetVAlign">
+            <summary>
+            Get vertical align
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetVAlign(De.Kjg.UnityLib.Gui.VerticalAlign)">
+            <summary>
+            Set vertical align
+            </summary>
+            <param name="vAlign">Use VerticalAlign enum</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetVisible">
+            <summary>
+            Get visibility
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetVisible(System.Boolean)">
+            <summary>
+            Set visibility
+            </summary>
+            <param name="visible"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetLayout">
+            <summary>
+            Get the layout
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetLayout(De.Kjg.UnityLib.Gui.Elements.Properties.Layout.Interfaces.ILayout)">
+            <summary>
+            Set the layout
+            </summary>
+            <param name="layout"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetLayoutProcessingData">
+            <summary>
+            Get the processing data that is calculated when all gui elements are calculated
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetStyle">
+            <summary>
+            Get the gui elements general style
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetStyle(UnityEngine.GUIStyle)">
+            <summary>
+            Set the gui elements general style
+            </summary>
+            <param name="style"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetStage">
+            <summary>
+            Get the stage
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetStage(De.Kjg.UnityLib.Gui.GuiStage)">
+            <summary>
+            Set the elements stage
+            </summary>
+            <param name="stage"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetParent">
+            <summary>
+            Get the parent gui element
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetParent(De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer)">
+            <summary>
+            Set the parent gui element
+            </summary>
+            <param name="parent">the parent</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetMouseEnabled">
+            <summary>
+            Return true if the mouse is enabled.
+            
+            When the mouse is disabled you will not get any mouse events on the gui element (f.e. mouse over or clicked)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetMouseEnabled(System.Boolean)">
+            <summary>
+            enable or disable mouse on the gui element.
+            
+            When the mouse is disabled you will not get any mouse events on the gui element (f.e. mouse over or clicked)
+            </summary>
+            <param name="enabled"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add an event listener
+            </summary>
+            <param name="eventName">The event name</param>
+            <param name="handler">the handler to be called</param>
+            <param name="once">if true the handler is only called once and then removed</param>
+            <param name="priority">The higher the priority the earlier the handler is called when there are multiple listeners for the event</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnAddedToStage(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.AddedToStage event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnRemovedFromStage(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.RemovedFromStage event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMouseOver(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MouseOver event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMouseOut(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MouseOut event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnClick(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.Click event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnDoubleClick(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.DoubleClick event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMouseDown(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MouseDown event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMouseUp(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MouseUp event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnRightMouseDown(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.RightMouseDown event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnRightMouseUp(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.RightMouseUp event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMiddleMouseDown(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MiddleMouseDown event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.OnMiddleMouseUp(System.Action{De.Kjg.UnityLib.Gui.Events.GuiElementEvent},System.Boolean,System.Int32)">
+            <summary>
+            Add GuiElementEvent.MiddleMouseUp event handler
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddListener(System.String,System.Action{De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent},System.Boolean,System.Int32)"/>
+            <see cref="T:De.Kjg.UnityLib.Gui.Events.GuiElementEvent"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.RemoveAllEventHandlers">
+            <summary>
+            Remove all event listeners
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)">
+            <summary>
+            Dispatch an event
+            </summary>
+            <param name="eventName">The event name</param>
+            <param name="e">If set this event is forwarded</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchAddedToStage(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.AddedToStage
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchRemovedFromStage(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.RemovedFromStage
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchMouseOver(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.MouseOver
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchMouseOut(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.MouseOut
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchClicked(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.Clicked
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchDoubleClicked(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.DoubleClicked
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchLeftMouseDown(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.LeftMouseDown
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchLeftMouseUp(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.LeftMouseUp
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchRightMouseDown(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.RightMouseDown
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchRightMouseUp(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.RightMouseUp
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchMiddleMouseDown(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.MiddleMouseDown
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.DispatchMiddleMouseUp(De.Kjg.UnityLib.Gui.Events.GuiElementEvent)">
+            <summary>
+            Dispatch GuiElementEvent.MiddleMouseUp
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Dispatch(System.String,De.Kjg.UnityLib.Gui.Events.AbstractGuiElementEvent)"/>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.X">
+            <summary>
+            tweenable x coordinate
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Y">
+            <summary>
+            tweenable y coordinate
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Width">
+            <summary>
+            tweenable width
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.PercentualWidth">
+            <summary>
+            tweenable percentual width
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MinWidth">
+            <summary>
+            tweenable min width
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MaxWidth">
+            <summary>
+            tweenable max width
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Height">
+            <summary>
+            tweenable height
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.PercentualHeight">
+            <summary>
+            tweenable percentual height
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MinHeight">
+            <summary>
+            tweenable min height
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MaxHeight">
+            <summary>
+            tweenable max height
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1">
+            <summary>
+            The generic implementation of a bindable.
+            
+            A bindable dispatches an event its value is changed. You can subscribe to the event using OnChange().
+            
+            You should create bindables by using the BindableFactory <see cref="T:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory"/>
+            If you need a list of bindable objects you should use BindableList <see cref="T:De.Kjg.UnityLib.MVC.DataBinding.BindableList`1"/>
+            For more datails see IBindable <see cref="T:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1">
+            <summary>
+            Generic bindable interface that is aware of the wrapped type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable">
+            <summary>
+            Concrete interface. This can be used when the wrapped type of the bindable is unknown.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.OnChangeConcrete(System.Delegate,System.Boolean)">
+            <summary>
+            Register an OnChange listener. The event is dispatched when some changed inside of a bindable.
+            </summary>
+            <param name="listener">The listener</param>
+            <param name="dispatchImmediate">If true the given listener is immediately dispatched once when added.</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.RemoveOnChangeConcrete(System.Delegate)">
+            <summary>
+            Removes a OnChange listener.
+            </summary>
+            <param name="listener"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.ForwardOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            Forwards an OnChange listener from another bindable. This is usefull to built tree-structures, where you dont need to listen 
+            for the OnChange-event on all leaves of the tree.
+            </summary>
+            <param name="originalDispatcher">The bindable to forward the event from</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.RemoveForwardedOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            Remove a forwarding listener.
+            </summary>
+            <param name="originalDispatcher">The bindable to forward the event from</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.Dispatch">
+            <summary>
+            Dispatches the OnChange event.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1.OnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0},System.Boolean)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.OnChangeConcrete(System.Delegate,System.Boolean)"/>
+            </summary>
+            <param name="listener"></param>
+            <param name="dispatchImmediate"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1.RemoveOnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0})">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.RemoveOnChangeConcrete(System.Delegate)"/>
+            </summary>
+            <param name="listener"></param>
+        </member>
+        <member name="P:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1.Value">
+            <summary>
+            Contains the wrapped value.
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.BindableEvents">
+            <summary>
+            Manages all the change listeners bound to the bindable
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.#ctor">
+            <summary>
+            C'tor
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.Set(`0,System.Boolean)">
+            <summary>
+            Sets the value.
+            </summary>
+            <param name="newValue"></param>
+            <param name="dispatchIfChanged"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.Get">
+            <summary>
+            Get the wrapped value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.OnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0},System.Boolean)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1.OnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0},System.Boolean)"/>
+            </summary>
+            <param name="listener"></param>
+            <param name="dispatchImmediate"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.OnChangeConcrete(System.Delegate,System.Boolean)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.OnChangeConcrete(System.Delegate,System.Boolean)"/>
+            </summary>
+            <param name="listener"></param>
+            <param name="dispatchImmediate"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.RemoveOnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0})">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IBindable`1.RemoveOnChange(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0})"/>
+            </summary>
+            <param name="listener"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.RemoveOnChangeConcrete(System.Delegate)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.RemoveOnChangeConcrete(System.Delegate)"/>
+            </summary>
+            <param name="listener"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.ForwardOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.ForwardOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)"/>
+            </summary>
+            <param name="originalDispatcher"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.RemoveForwardedOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.RemoveForwardedOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)"/>
+            </summary>
+            <param name="originalDispatcher"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.Dispatch">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable.Dispatch"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.op_Implicit(De.Kjg.UnityLib.MVC.DataBinding.Bindable{`0})~`0">
+            <summary>
+            Defines an implicit assignment operator for assigning the bindable to its wrapped type. 
+            
+            When the Bindable is assigned to its wrapped type the wrapped value is returned.
+            </summary>
+            <param name="b">The bindable</param>
+            <returns>The bindables wrapped value</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.ToString">
+            <summary>
+            Converts the value to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:De.Kjg.UnityLib.MVC.DataBinding.Bindable`1.Value">
+            <summary>
+            Instance of the real value
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.Interfaces.IDropTarget">
+            <summary>
+            Drop targets need to implement this interface
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IDropTarget.WillAcceptDraggable(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement)">
+            <summary>
+            Returns TRUE if it accepts the given Drag and Drop type.
+             </summary>
+            <param name="element"></param>
+            <returns>TRUE if type is accepted</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IDropTarget.AcceptDraggable(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement)">
+            <summary>
+            Returns TRUE if it accepts the given Drag and Drop type.
+             </summary>
+            <param name="element"></param>
+            <returns>TRUE if type is accepted</returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.Interfaces.IBehaviour">
+            <summary>
+            Interface for gui element behaviours.
+            
+            Behaviour can be attached to gui elements to encapsulate and implement complex interaction or animations, 
+            f.e. drag and drop.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IBehaviour.Initialize(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement)">
+            <summary>
+            Initialize the behaviour
+            </summary>
+            <param name="guiElement"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IBehaviour.Process">
+            <summary>
+            Return TRUE to continue and FALSE to remove the guiElement.
+            NOTICE: DO NOT use guiElement.RemoveBehaviour(this). It does not work the way you expect!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.DI.StandardModule">
+            <summary>
+            A basic module implementation.
+            
+            Override the Load()-Method and do the Binding-Definitions there.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.SetKernel(De.Kjg.UnityLib.DI.StandardKernel)">
+            <summary>
+            Set the kernel.
+            </summary>
+            <param name="kernel"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.Load">
+            <summary>
+            Implement this methods and define your type binding in it.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.Bind``1">
+            <summary>
+            Begins the definition of a binding
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.Get``1">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.Get(System.Type)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IModule.Inject(System.Object)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Inject(System.Object)"/>
+            </summary>
+            <param name="instanceToInjectInto"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.#ctor">
+            <summary>
+            C'tor
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.SetKernel(De.Kjg.UnityLib.DI.StandardKernel)">
+            <summary>
+            Sets the IKernel managing this module.
+            </summary>
+            <param name="kernel"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.Load">
+            <summary>
+            Override this method and define the Bindings for the module.
+            </summary>
+        </member>
+        <!-- Ungültiger XML-Kommentar wurde für den Member "M:De.Kjg.UnityLib.DI.StandardModule.Bind``1" ignoriert -->
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.Get``1">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.Get(System.Type)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get(System.Type)"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardModule.Inject(System.Object)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Inject(System.Object)"/>
+            </summary>
+            <param name="instanceToInjectInto"></param>
+        </member>
+        <member name="P:De.Kjg.UnityLib.DI.StandardModule.Bindings">
+            <summary>
+            The bindings definitions.
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.DI.StandardModule.Injector">
+            <summary>
+            The injector.
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.DI.StandardModule.Kernel">
+            <summary>
+            Reference to the kernel of this module.
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.DI.StandardKernel">
+            <summary>
+            The kernel is the central entity for the IoC-Container.
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.DI.IKernel">
+            <summary>
+            Defines the interface of central entity of the IoC-Container.
+            
+            This small IoC-Container is inspired by NInject https://github.com/ninject/ninject.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IKernel.Get``1">
+            <summary>
+            Get an instance of the given type. Depending on the defition of the Binding the requested
+            Type is created or a singleton instance is returned.
+            
+            If there is no definition available the type is instantiated and injections are applied.
+            </summary>
+            <typeparam name="TType">The requested instances type</typeparam>
+            <returns>The instance of an object</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IKernel.Get(System.Type)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.IKernel.Inject(System.Object)">
+            <summary>
+            Perform Field- and Property-Injections on an exiting object.
+            </summary>
+            <param name="instanceToInjectInto">The object to do the injections on.</param>
+        </member>
+        <member name="F:De.Kjg.UnityLib.DI.StandardKernel.Module">
+            <summary>
+            The module managed by the Kernel
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardKernel.Get``1">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardKernel.Get(System.Type)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Get``1"/>
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.StandardKernel.Inject(System.Object)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.DI.IKernel.Inject(System.Object)"/>
+            </summary>
+            <param name="instanceToInjectInto"></param>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._eventDispatcher">
+            <summary>
+            Event dispatcher instance
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Behaviours">
+            <summary>
+            Behaviours of the gui element
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.#ctor">
+            <summary>
+            C'tor
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Destroy">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Destroy"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Draw">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Draw"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetEventDispatcher">
+            <summary>
+            Get the event dispatcher
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetHAlign">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetHAlign"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetHAlign(De.Kjg.UnityLib.Gui.HorizontalAlign)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetHAlign(De.Kjg.UnityLib.Gui.HorizontalAlign)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetVAlign">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetVAlign"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetVAlign(De.Kjg.UnityLib.Gui.VerticalAlign)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetVAlign(De.Kjg.UnityLib.Gui.VerticalAlign)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetVisible">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetVisible"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetVisible(System.Boolean)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetVisible(System.Boolean)"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._layout">
+            <summary>
+            The elements layout
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetLayout">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetLayout"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetLayout(De.Kjg.UnityLib.Gui.Elements.Properties.Layout.Interfaces.ILayout)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetLayout(De.Kjg.UnityLib.Gui.Elements.Properties.Layout.Interfaces.ILayout)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetLayoutProcessingData">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetLayoutProcessingData"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._style">
+            <summary>
+            The elements main style
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetStyle">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetStyle"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetStyle(UnityEngine.GUIStyle)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetStyle(UnityEngine.GUIStyle)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetStyleByName(System.String)">
+            <summary>
+            Get style by name
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._stage">
+            <summary>
+            The gui elements stage
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetStage">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetStage"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetStage(De.Kjg.UnityLib.Gui.GuiStage)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetStage(De.Kjg.UnityLib.Gui.GuiStage)"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._parent">
+            <summary>
+            The gui elements parent
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetParent">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetParent"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetParent(De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetParent(De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer)"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement._mouseEnabled">
+            <summary>
+            The gui elements mouse enabled flag
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetMouseEnabled">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.GetMouseEnabled"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.SetMouseEnabled(System.Boolean)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.SetMouseEnabled(System.Boolean)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.GetL10N">
+            <summary>
+            <see cref="!:IGuiElement.GetL10N"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.__(System.String)">
+            <summary>
+            Helper to get l10n string from text container using the currently configured language
+            </summary>
+            <see cref="M:De.Kjg.UnityLib.L10N.Interfaces.IL10N.SetLanguage(System.String)"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.__(System.String,System.String)">
+            <summary>
+            Helper to get l10n string from text container using the given language
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.AddBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.AddBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.RemoveBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.RemoveBehaviour(De.Kjg.UnityLib.Gui.Interfaces.IBehaviour)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.RemoveAllBehaviours">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.RemoveAllBehaviours"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.X">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.X"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Y">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Y"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Width">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Width"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.PercentualWidth">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.PercentualWidth"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.MinWidth">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MinWidth"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.MaxWidth">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MaxWidth"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.Height">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Height"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.PercentualHeight">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.PercentualHeight"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.MinHeight">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MinHeight"/>
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Elements.AbstractGuiElement.MaxHeight">
+            <summary>
+            <see cref="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.MaxHeight"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Signals.Signal._knownSlots">
+            <summary>
+            This is used to figure out if a slot is already connected before, to prevent it from being added twice
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.Interfaces.ICommand.Execute(System.Object[])">
+            <summary>
+            Executes the command
+            </summary>
+            <param name="parameters"></param>
+            <returns>True if the command was successfully executed</returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.DI.Injector">
+            <summary>
+            The injector created instances and does Field and Property injection.
+            
+            The injection works recursively. All injected instances are created by the injector as well.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Injector.Instantiate(System.Type,System.Collections.Generic.List{De.Kjg.UnityLib.DI.Binding})">
+            <summary>
+            Instantiates an object of the requested type by using the provided binding definitions.
+            </summary>
+            <param name="type">The requested type</param>
+            <param name="bindings">The bindings</param>
+            <returns>The type create by applying the bindings</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Injector.Instantiate(De.Kjg.UnityLib.DI.Binding,System.Collections.Generic.List{De.Kjg.UnityLib.DI.Binding})">
+            <summary>
+            Get an instancy by applying the given Binding
+            </summary>
+            <param name="binding">The binding to use</param>
+            <param name="bindings">All other bindings</param>
+            <returns>The create instance</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Injector.InstantiateInternal(System.Type,System.Collections.Generic.List{De.Kjg.UnityLib.DI.Binding},De.Kjg.UnityLib.DI.InstantiateFunc,System.Boolean)">
+            <summary>
+            Instantiates the target type.
+            </summary>
+            <param name="type">The target type</param>
+            <param name="bindings">All binding definitions to be used</param>
+            <param name="invoker">Function that is used to create the instance</param>
+            <param name="doInjection">True if field- and property injections should be applied</param>
+            <returns>The target type instance</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Injector.Inject(System.Object,System.Collections.Generic.List{De.Kjg.UnityLib.DI.Binding})">
+            <summary>
+            Does the field- and property-injection.
+            
+            Looks up all fields and properties that have the [Inject] attribute set and injects an instance into it.
+            </summary>
+            <param name="instance">The instance to inject into.</param>
+            <param name="bindings">The binding definitions to be used.</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Injector.InvokeConstructor(System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Used to create an objet instance by invoking a constructor.
+            </summary>
+            <param name="constructorInfo">The constructor to be invoked.</param>
+            <param name="constructorArgs">The arguments to passed to the constructor.</param>
+            <returns></returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer">
+            <summary>
+            All Gui Element Containers implement at least this interface.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.AddChildConcrete(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement)">
+            <summary>
+            Add child (concrete non-templated implementation)
+            </summary>
+            <param name="child"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.GetChildren">
+            <summary>
+            Get all child gui elements
+            </summary>
+            <returns>The children</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.ReplaceChild(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement,De.Kjg.UnityLib.Gui.Interfaces.IGuiElement,System.Boolean)">
+            <summary>
+            Replace a child with another gui element.
+            
+            If 'which' is no child nothing is done.
+            </summary>
+            <param name="which">which child to remove</param>
+            <param name="with">to replace with</param>
+            <param name="destroyRemoved">true to destroy the removed child</param>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Destroy"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.RemoveChild(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement,System.Boolean)">
+            <summary>
+            Remove a child.
+            
+            If 'child' is no child nothing is done. 
+            </summary>
+            <param name="child">The child to be removed</param>
+            <param name="destroy">True to destroy the child after removal.</param>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Destroy"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.RemoveChildAt(System.Int32,System.Boolean)">
+            <summary>
+            Remove a child at the given index.
+            
+            If the index is greater or equal the number of children or less than 0 nothing is done.
+            </summary>
+            <param name="idx">The index</param>
+            <param name="destroy">True to detroy the child after removal.</param>
+            <see cref="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElement.Destroy"/>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.RemoveAllChildren(System.Boolean)">
+            <summary>
+            Remove all children
+            </summary>
+            <param name="destroy">True to destroy each child after removal.</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.HasChild(De.Kjg.UnityLib.Gui.Interfaces.IGuiElement)">
+            <summary>
+            Check if a gui element is child of the container
+            </summary>
+            <param name="element">The element to check</param>
+            <returns></returns>
+        </member>
+        <member name="P:De.Kjg.UnityLib.Gui.Interfaces.IGuiElementContainer.Padding">
+            <summary>
+            tweenable padding
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1">
+            <summary>
+            Manages all OnChange-listeners attached to a bindable
+            </summary>
+            <typeparam name="T">The type the is wrapped by a bindable</typeparam>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.Bindable">
+            <summary>
+            Reference to the bindable, to which this instance belongs to.
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.Listeners">
+            <summary>
+            The event that holds all listeners
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.ForwardedListeners">
+            <summary>
+            A dictionary for remebering listeners that could not be directly added to Listeners because of an unknown listener type.
+            This is used in AddConcrete() and RemoveConcrete()
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.AddConcrete(System.Delegate)"/>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.RemoveConcrete(System.Delegate)"/>
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.ForwardedBindables">
+            <summary>
+            A Dictionary to remember all the forwareded events.
+            This is used in ForwardOnChange() and RemoveForwardedOnChange()
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.ForwardOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)"/>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.RemoveForwardedOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)"/>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.#ctor(De.Kjg.UnityLib.MVC.DataBinding.IBindable{`0})">
+            <summary>
+            C'tor
+            </summary>
+            <param name="bindable">The bindable that this instance belongs to</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.Add(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0})">
+            <summary>
+            Add a listener.
+            </summary>
+            <param name="callback">The listener</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.AddConcrete(System.Delegate)">
+            <summary>
+            Add a listener of an unknown type.
+            </summary>
+            <param name="listener">Listener of unknown type.</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.RemoveConcrete(System.Delegate)">
+            <summary>
+            Remove a listener of an unknown type.
+            </summary>
+            <param name="listener">Listener of unknown type.</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.Remove(De.Kjg.UnityLib.MVC.DataBinding.BindableCallback{`0})">
+            <summary>
+            Remove a listener.
+            </summary>
+            <param name="listener"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.Dispatch(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            Dispatch the OnChange-Event
+            </summary>
+            <param name="originalDispatcher">The original dispatcher, in case we are forwarding the event</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.ForwardOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            Register a forwarding listener to another bindable
+            </summary>
+            <param name="originalDispatcher">The bindable to forward from</param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableEvents`1.RemoveForwardedOnChange(De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            Remove a forwarding listener.
+            </summary>
+            <param name="originalDispatcher">The bindable to forward from</param>
+        </member>
+        <member name="T:De.Kjg.UnityLib.DI.Binding">
+            <summary>
+            Define the Binding from requested type to instance actually to be provided
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.DI.Binding.GetInstance">
+            <summary>
+            Delegate that is called to instantiate the target types instance.
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.DI.Binding.DoFieldAndPropertyInjection">
+            <summary>
+            Defines if the Field and Property-Inject should be done.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Binding.#ctor(System.Type)">
+            <summary>
+            C'tor
+            </summary>
+            <param name="boundFrom"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.DI.Binding.To``1">
+            <summary>
+            Define that the requested type is bound to a target type.
+            Every injection results in a new instance of the target type.
+            </summary>
+            <typeparam name="TType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:De.Kjg.UnityLib.DI.Binding.BoundFrom">
+            <summary>
+            The definition of the request type.
+            </summary>
+        </member>
+        <member name="P:De.Kjg.UnityLib.DI.Binding.BoundTo">
+            <summary>
+            The definition of the target type.
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.VerticalAlign">
+            <summary>
+            Defines vertical aligns
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.HorizontalAlign">
+            <summary>
+            defines horizontal aligns
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.Behaviours.DragAndDropPkg.DefaultHighlightingStrategy.StyleCache">
+            <summary>
+            Contains possible Drop targets and a clone of their original GUIStyle
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.Interfaces.IUndoable.Undo">
+            <summary>
+            
+            </summary>
+            <returns>Returns true if the undo was completed successfully</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.Interfaces.IUndoable.Redo">
+            <summary>
+            
+            </summary>
+            <returns>Returns true if the redo was completed successfully</returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.Processors.BehaviourRegistry">
+            <summary>
+            A central registry for all GuiElement behaviours? 
+            
+            We use it so we dont need to go through all Components to execute the Behaviours.
+            More over we avoid problem when a behaviour (f.e. DragAndDrop) changes GuiElement, adds or removes them.
+            This had resulted in an "ArrayList changed Exception", when processing the behaviours while traversing the GuiElement tree.
+            </summary>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory">
+            <summary>
+            Factory for creating Bindable instances.
+            
+            The main use of this factory is to create a bindable object and traverse through all its fields.
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateObjectRecursive``1"/>
+            
+            It can also be used to create single instance f.e. 
+            <code>
+                Bindable{int} bi = BindableFactory.CreateInt();
+            </code>
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateObjectRecursive``1">
+            <summary>
+            Create a bindable object and traverses through all its fields
+            
+            If one the fields has the attribute [CreateBindable] set, the field is initialized with a new instance of a bindable
+            according to the fields type. The same is done for all field definitions of the children and so on.
+            
+            This way a tree of bindables is created. The method forwards all bindable events from child object to its parent.
+            So in the end, one only need to listener at the root for OnChange-event to know that somewhere in the tree something
+            was changed.
+            </summary>
+            <typeparam name="T">The type to be created</typeparam>
+            <returns>The created instance of type T</returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateObjectRecursive(System.Type,De.Kjg.UnityLib.MVC.DataBinding.IConcreteBindable)">
+            <summary>
+            <see cref="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateObjectRecursive``1"/>
+            </summary>
+            <param name="type"></param>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateInt">
+            <summary>
+            Creates a bindable int
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateUInt">
+            <summary>
+            Creates a bindable uint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateFloat">
+            <summary>
+            Creates a bindable float
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateDouble">
+            <summary>
+            Creates a bindable double
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateString">
+            <summary>
+            Creates a bindable string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DataBinding.BindableFactory.CreateList``1">
+            <summary>
+            Creates a bindable List
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:De.Kjg.UnityLib.Gui.Interfaces.IDraggable">
+            <summary>
+            Gui elements that can be dragged need to implement this interface
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.Gui.Interfaces.IDraggable.GetDragAndDropType">
+            <summary>
+            Get the type of what is dragged. It can be dropped in all targets, that accept this type.
+            </summary>
+            <returns>The name of the drop type.</returns>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DefaultContext.ViewMap">
+            <summary>
+            Maps IGuiElements to IMediators
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DefaultContext.ActiveMediators">
+            <summary>
+            Stores all mediators attached to one IGuiElement. We need this information to be able to destroy the mediators when
+            the gui element is removed from the stage.
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.MVC.DefaultContext.SignalCommandMap">
+            <summary>
+            Maps signals to command. This is used to execute command by triggering a signal.
+            </summary>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DefaultContext.MapSignal(De.Kjg.UnityLib.Signals.ISignal,System.Type)">
+            <summary>
+            Maps a signal to a command. When the signal is deispatcher the command is created and executed.
+            </summary>
+            <param name="signal"></param>
+            <param name="commandClass"></param>
+        </member>
+        <member name="M:De.Kjg.UnityLib.MVC.DefaultContext.MapSignal(De.Kjg.UnityLib.Signals.ISignal,De.Kjg.UnityLib.Signals.Slot)">
+            <summary>
+            Maps a signal to a method. When the signal is dispatcher the method is called.
+            </summary>
+            <param name="signal"></param>
+            <param name="slot"></param>
+        </member>
+        <member name="T:De.Kjg.UnityLib.MVC.DataBinding.BindableCallback`1">
+            <summary>
+            Defines the signature of the callback methods that are invoked when a bindable dispatches its changes.
+            </summary>
+            <typeparam name="T">The wrapped type</typeparam>
+            <param name="value">The wrapped value</param>
+            <param name="dispatcher">The currently dispatching bindable (Differs from originalDispatcher when the event is forwarded)</param>
+            <param name="originalDispatcher">The bindable that did the initial dispatch.</param>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.GuiStage.DebugMode">
+            <summary>
+            set to true to enable debugging
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.Gui.GuiStage.MousePosition">
+            <summary>
+            Allways contains the current mouse position (is update by Draw())
+            </summary>
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.LocalizedDataHolder.DataHash">
+            the hash containing data 
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.LocalizedDataHolder.NestedHash">
+            the hash containing nested data holders 
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.LocalizedDataHolder.GroupName">
+            the name of this data holder - only needed for dumping data 
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.LocalizedDataHolder.GetData(System.String)">
+            get data for the given id
+            
+            @param id
+            
+            @return the data stored for the given id
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.LocalizedDataHolder.SetData(System.String,System.Object)">
+            set data by id
+            
+            @param id the id of the data, id must not be null or an empty string
+            @param data the data
+            
+            @throws Error if id is null or an empty string
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.LocalizedDataHolder.ResolvePath(System.Collections.Generic.List{System.String},System.Boolean)">
+            Resolve a path inside the nested holders.
+            
+            <p>If the parameter path is null or an empty array the holders return itself (this). The is the exit condition for recursively 
+            resolving the path.</p>
+            
+            <p>You can specify whether not existing path should be created using the createHolders parameter. This makes sense while filling
+            in data. In this case the method will always return a LocalizedDataHolder instance.</p>
+            
+            <p>It does not make much sense to set createHolders to true while reading data.</p>
+            
+            @param path path to resolve inside the nested holders
+            @param createHolders set to true to create nested holders if they do not exists
+            
+            @return an instance of LocalizedDataHolder or null if nothing was found in the given path
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.LocalizedDataHolder.GetNested(System.String,System.Boolean)">
+            get a nested data holder by name
+            
+            @param key the name of the nested holder to get
+            @param createIfNotExisting if this is set to true a LocalizedDataHolder will be created if not already existing for the given key
+            
+            @return an instance of LocalizedDataHolder or null if nothing was found inside the nestedHash
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.XliffImporter.LanguageHolder">
+            the localized language storage contains the data for all languages 
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.XliffImporter.SourceLanguage">
+            the source language 
+        </member>
+        <member name="F:De.Kjg.UnityLib.L10N.XliffImporter.TargetLanguage">
+            the target language 
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.XliffImporter.Import(System.Xml.XmlDocument,De.Kjg.UnityLib.L10N.LocalizedLanguageHolder)">
+            import xml content from XLIFF-xml to the given languageHolder
+            
+            @param xml the XLIFF-xml to be imported
+            @param languageHolder the LocalizedLanguageHolder instance where the data will be imported to 
+        </member>
+        <member name="M:De.Kjg.UnityLib.L10N.XliffImporter.ParseContent(System.Xml.XmlNode,System.Collections.Generic.List{System.String})">
+            Parses the content of the given node for any trans-unit and group tags and add the content found to the LocalizedLanguageHolder
+            
+            If groups are found a path is build to address the texts later. Groups will be processed recursivly.
+            
+            @param xml the xml snippet to be parsed
+            @param pathInDataHolder the path inside of the LocalizedLanguageHolder where the texts will be stored
+        </member>
+    </members>
+</doc>

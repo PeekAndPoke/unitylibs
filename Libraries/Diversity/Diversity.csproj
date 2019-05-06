@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{27FA004E-E9F4-4A4D-8582-DF1E5895F6C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>De.Kjg</RootNamespace>
+    <AssemblyName>Diversity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>false</NoStdLib>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Diversity\Impl\UXs\UX.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Events\GuiEventNames.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Events\IEvent.cs" />
+    <Compile Include="Diversity\Interfaces\DI\IInjector.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Data\IRgbaColor.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Data\IPoint.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Data\RgbaColor.cs" />
+    <Compile Include="Diversity\Impl\DI\InjectionBinding.cs" />
+    <Compile Include="Diversity\Impl\DI\Exceptions\DIException.cs" />
+    <Compile Include="Diversity\Interfaces\DI\IDependencyInjectionKernel.cs" />
+    <Compile Include="Diversity\Interfaces\DI\IDependencyInjectionContainer.cs" />
+    <Compile Include="Diversity\Impl\DI\InjectAttribute.cs" />
+    <Compile Include="Diversity\Impl\DI\Injector.cs" />
+    <Compile Include="Diversity\Impl\DI\DependencyInjectionKernel.cs" />
+    <Compile Include="Diversity\Impl\DI\DependencyInjectionContainer.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Visuals\IImage.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Visuals\BaseImageAdapter.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Visuals\VisualsAdapter.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\AbstractGuiElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\Image.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\ImageButton.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\ImageToggleButton.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\ToggleButton.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\GenericAbstractGuiContainer.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\ConcreteAbstractInputElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\GenericAbstractInputElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\HSlider.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\HScrollbar.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\VScrollbar.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\VSlider.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\PasswordField.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\TextArea.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Inputs\TextField.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Events\IInputEvent.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\IGuiStage.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Layout\IContainerLayout.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Container\ScrollViewLayout.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Visuals\BaseStyleAdapter.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Visuals\BaseSkinAdapter.cs" />
+    <Compile Include="Diversity\Impl\UXs\Events\Event.cs" />
+    <Compile Include="Diversity\Impl\UXs\Events\InputEvent.cs" />
+    <Compile Include="Diversity\Impl\UXs\Exceptions\UxException.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\BaseLayout.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Container\ContainerLayout.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Container\GuiStageLayout.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Layout\ILayout.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Container\HorizontalLayout.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Container\VerticalLayout.cs" />
+    <Compile Include="Diversity\Impl\Utils\GuiUtil.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Hardware\NullHardware.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Elements\IGuiInputElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Layout\Data\ProcessingData.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Hardware\IHardware.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Renderers\IRenderer.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Visuals\ISkin.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Visuals\IStyle.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Renderers\AbstractBaseRenderer.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Renderers\NullRenderer.cs" />
+    <Compile Include="Diversity\Impl\I18n\Exceptions\I18NException.cs" />
+    <Compile Include="Diversity\Interfaces\I18n\II18N.cs" />
+    <Compile Include="Diversity\Interfaces\I18n\II18NXmlImporter.cs" />
+    <Compile Include="Diversity\Interfaces\I18n\ITranslatable.cs" />
+    <Compile Include="Diversity\Impl\I18n\LanguageCode.cs" />
+    <Compile Include="Diversity\Impl\I18n\LocalizedDataHolder.cs" />
+    <Compile Include="Diversity\Impl\I18n\LocalizedLanguageHolder.cs" />
+    <Compile Include="Diversity\Impl\I18n\Strings\LocalizedString.cs" />
+    <Compile Include="Diversity\Impl\I18n\Strings\StringHolder.cs" />
+    <Compile Include="Diversity\Impl\I18n\XliffImporter.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Data\Point.cs" />
+    <Compile Include="Diversity\Impl\Abstraction\Data\Rectangle.cs" />
+    <Compile Include="Diversity\Impl\Modules\AbstractMainModule.cs" />
+    <Compile Include="Diversity\Impl\Modules\AbstractSubModule.cs" />
+    <Compile Include="Diversity\Interfaces\Modules\IMainModule.cs" />
+    <Compile Include="Diversity\Interfaces\Modules\ISubModule.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\BindableException.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\DataBinding\IBindableContainer.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\Watchers\BindableListWatcher.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\DataBinding\Watchers\IBindableListWatcher.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\IUndoable.cs" />
+    <Compile Include="Diversity\Impl\MVC\Mediators\AbstractBaseMediator.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\BindableAttribute.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\Mediators\IGameObjectMediator.cs" />
+    <Compile Include="Diversity\Impl\MVC\Mediators\GameObjectMediator.cs" />
+    <Compile Include="Diversity\Impl\MVC\Commands\TypeSafeCommand.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\Bindable.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\BindableEvents.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\BindableFactory.cs" />
+    <Compile Include="Diversity\Impl\MVC\DataBinding\BindableList.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\DataBinding\IBindable.cs" />
+    <Compile Include="Diversity\Impl\MVC\DefaultContext.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\Commands\ICommand.cs" />
+    <Compile Include="Diversity\Interfaces\MVC\Mediators\IMediator.cs" />
+    <Compile Include="Diversity\Impl\MVC\Mediators\GenericMediator.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Align.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Behaviours\AbstractBehaviour.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\Canvas.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Processors\BehaviourProcessor.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Behaviours\IBehaviour.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\GenericAbstractGuiElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\Button.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\Label.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Basic\Spacer.cs" />
+    <Compile Include="Diversity\Impl\UXs\Events\EventDispatcher.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\AbstractGuiContainer.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\HBox.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Elements\IGuiElementContainer.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\Box.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\ScrollView.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Elements\Container\VBox.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Elements\IGuiElement.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\GuiStage.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Behaviours\IDraggable.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Guis\Behaviours\IDropTarget.cs" />
+    <Compile Include="Diversity\Impl\UXs\Guis\Processors\MouseInputProcessor.cs" />
+    <Compile Include="Diversity\Impl\Utils\StringUtil.cs" />
+    <Compile Include="Diversity\Impl\Utils\UniqueIdGenerator.cs" />
+    <Compile Include="Diversity\Interfaces\Abstraction\Data\IRectangle.cs" />
+    <Compile Include="Diversity\Interfaces\I18n\II18NDataHolder.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\IUx.cs" />
+    <Compile Include="Diversity\Interfaces\UXs\Scenes\IScene.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Diversity\Impl\MVC\UndoableContext.cs" />
+    <Compile Include="Diversity\Impl\Signals\GenericSignal.cs" />
+    <Compile Include="Diversity\Interfaces\Signals\ISignal.cs" />
+    <Compile Include="Diversity\Impl\Signals\Signal.cs" />
+    <Compile Include="Diversity\Impl\Utils\StreamUtil.cs" />
+    <Compile Include="Diversity\Impl\Utils\UnitTestUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diversity\Impl\UXs\Guis\Components\Popups\" />
+    <Folder Include="Diversity\Impl\UXs\Scenes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)\bin\$(ConfigurationName)\
+
+copy $(TargetPath) $(SolutionDir)\..\cura3D\Src\Prototyp\curaConcept\Assets\Libraries\
+"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\2.0\pdb2mdb.exe" $(TargetPath)
+copy $(TargetDir)$(TargetName).dll.mdb $(SolutionDir)\..\cura3D\Src\Prototyp\curaConcept\Assets\Libraries\
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

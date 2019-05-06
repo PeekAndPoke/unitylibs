@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6463232-8F1C-4BC9-ADD0-A617FE0E8517}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>De.Kjg</RootNamespace>
+    <AssemblyName>Diversity4Unity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>default</LangVersion>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Diversity\Unity\Debug\DebugContext.cs" />
+    <Compile Include="Diversity\Unity\Debug\DebugWindow.cs" />
+    <Compile Include="Diversity\Unity\Debug\Interfaces\IDebugWindow.cs" />
+    <Compile Include="Diversity\Unity\Debug\Panels\AbstractDebugPanel.cs" />
+    <Compile Include="Diversity\Unity\Debug\Panels\DefaultDebugPanel.cs" />
+    <Compile Include="Diversity\Unity\Debug\Interfaces\IDebugPanel.cs" />
+    <Compile Include="Diversity\Unity\Debug\Panels\DummyPanel.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Client\DebugClientHardware.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Client\DebugClientModule.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Client\DebugClientMonoBehaviour.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Server\DebugServerHardware.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Server\DebugServerModule.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Server\DebugServerMonoBehaviour.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Server\DebugServerRenderer.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Client\DebugClientRenderer.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\RemoteRenderCommand.cs" />
+    <Compile Include="Diversity\Unity\Debug\Remote\Transfer\HardwareData.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DragAndDropPkg\DefaultDragAndDropStrategy.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DragAndDropPkg\DefaultHighlightingStrategy.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DragAndDropPkg\Interfaces\IDragAndDropStrategy.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DragAndDropPkg\Interfaces\IHighlightingStrategy.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DropTarget3D.cs" />
+    <Compile Include="Diversity\Unity\DragAndDrop\DropTargetRegistry.cs" />
+    <Compile Include="Diversity\Unity\UXs\Guis\Behaviours\DragAndDrop.cs" />
+    <Compile Include="Diversity\Unity\UXs\Guis\Behaviours\DragMove.cs" />
+    <Compile Include="Diversity\Unity\UXs\Guis\GuiCursors.cs" />
+    <Compile Include="Diversity\Unity\UnityBridgeExtensions.cs" />
+    <Compile Include="Diversity\Unity\Abstraction\UnityGuiRenderer.cs" />
+    <Compile Include="Diversity\Unity\Abstraction\UnityHardware.cs" />
+    <Compile Include="Diversity\Unity\Abstraction\Visuals\UnityImageAdapter.cs" />
+    <Compile Include="Diversity\Unity\Abstraction\Visuals\UnitySkinAdapter.cs" />
+    <Compile Include="Diversity\Unity\Abstraction\Visuals\UnityStyleAdapter.cs" />
+    <Compile Include="Diversity\Unity\Net\JSON\JSON.cs" />
+    <Compile Include="Diversity\Unity\Net\JSON\JSONArrayList.cs" />
+    <Compile Include="Diversity\Unity\Net\JSON\JSONHashTable.cs" />
+    <Compile Include="Diversity\Unity\Net\JSON\JSONObject.cs" />
+    <Compile Include="Diversity\Unity\Net\JSON\JSONValueObject.cs" />
+    <Compile Include="Diversity\Unity\Net\Loader\BaseLoader.cs" />
+    <Compile Include="Diversity\Unity\Net\Loader\GenericBaseLoader.cs" />
+    <Compile Include="Diversity\Unity\Net\Loader\ImageLoader.cs" />
+    <Compile Include="Diversity\Unity\Net\Loader\JSONLoader.cs" />
+    <Compile Include="Diversity\Unity\Net\Loader\UrlRequest.cs" />
+    <Compile Include="Diversity\Unity\Net\NetModule.cs" />
+    <Compile Include="Diversity\Unity\Net\Services\BaseService.cs" />
+    <Compile Include="Diversity\Unity\Net\Services\GenericBaseService.cs" />
+    <Compile Include="Diversity\Unity\Net\Services\YoutubeService.cs" />
+    <Compile Include="Diversity\Unity\UXs\UxUnity3D.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diversity4UnityCore\Diversity4UnityCore.csproj">
+      <Project>{9543CA68-039A-4598-A77C-79897A77507C}</Project>
+      <Name>Diversity4UnityCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diversity\Diversity.csproj">
+      <Project>{27FA004E-E9F4-4A4D-8582-DF1E5895F6C2}</Project>
+      <Name>Diversity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diversity\Unity\UXs\Scenes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

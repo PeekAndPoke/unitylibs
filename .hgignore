@@ -1,0 +1,15 @@
+syntax: glob
+obj/*
+bin/*
+UnityLib/bin/*
+3DDishWasher/unityproject/Temp/*
+FipoDev.6.0.ReSharper.user
+UnityLibPlayground/Temp/*
+TestResults/*
+_ReSharper.*
+UnityLibs.suo
+UnityLibs.6.0.ReSharper.user
+UnityLibs.sln.DotSettings.user
+UnityLibExamples/AddressBook/Temp/*
+UnityLibExamples/GuiLayout/Temp/*
+RemoteDebugServer/Temp/*

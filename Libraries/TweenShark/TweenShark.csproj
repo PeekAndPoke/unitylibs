@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0776FEA2-3B9C-4AAF-BF46-1B479331762D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>De.Kjg</RootNamespace>
+    <AssemblyName>TweenShark</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>false</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TweenSharkPkg\Core\RunningTweenShark.cs" />
+    <Compile Include="TweenSharkPkg\Core\TweenSharkCore.cs" />
+    <Compile Include="TweenSharkPkg\Ease.cs" />
+    <Compile Include="TweenSharkPkg\EaseEx.cs" />
+    <Compile Include="TweenSharkPkg\ITweenSharkTick.cs" />
+    <Compile Include="TweenSharkPkg\ITweenSharkTweener.cs" />
+    <Compile Include="TweenSharkPkg\Logging\ILogger.cs" />
+    <Compile Include="TweenSharkPkg\Logging\ConsoleLogger.cs" />
+    <Compile Include="TweenSharkPkg\Logging\NullLogger.cs" />
+    <Compile Include="TweenSharkPkg\Options\PropertyOps.cs" />
+    <Compile Include="TweenSharkPkg\Options\TweenOps.cs" />
+    <Compile Include="TweenSharkPkg\TweenedObject.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\Accessor\FieldAccessor.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\Accessor\IAccessor.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\Accessor\PropertyAccessor.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Base\GenericTweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Base\SimpleTweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\FloatingPoint\DoubleTweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\FloatingPoint\FloatTweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\SignedByteTweener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\SignedInt16Tweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\SignedInt32Tweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\SignedInt64Tweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\UnsignedByteTweener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\UnsignedInt16Tweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\UnsignedInt32Tweener.cs" />
+    <Compile Include="TweenSharkPkg\Tweening\PropertyTweens\Integer\UnsignedInt64Tweener.cs" />
+    <Compile Include="TweenSharkPkg\TweenShark.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TweenSharkPkg\NextSteps.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)\bin\$(ConfigurationName)\
+copy $(TargetPath) $(SolutionDir)\3DDishWasher\unityproject\Assets\Libs\
+copy $(TargetPath) $(SolutionDir)\UnityLibPlayground\Assets\Libs\
+
+copy $(TargetPath) $(SolutionDir)\..\cura3D\Src\Prototyp\curaConcept\Assets\Libraries\
+"C:\Program Files (x86)\Unity\Editor\Data\Mono\lib\mono\2.0\pdb2mdb.exe" $(TargetPath)
+copy $(TargetDir)$(TargetName).dll.mdb $(SolutionDir)\..\cura3D\Src\Prototyp\curaConcept\Assets\Libraries\
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

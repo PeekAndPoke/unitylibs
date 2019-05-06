@@ -1,0 +1,110 @@
+[Folders]
+Folders=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug| 
+[Rules]
+AllRuleNames=Copy Diversity to Addressbook-example|Copy Diversity to Gui-Example|Copy Diversity to Cura3Dhowtos|Copy Diversity to Cura3D|Copy Diversity To RemoteDebugServer| 
+[Preferences]
+Sleeptime=3
+SleeptimeLength=seconds
+RBEnable=0
+EnableLogging=0
+LogType= 
+LastFolder=C:\Users\gerk\Desktop *C:\Dev\projects\KjgUnityLibs\RemoteDebugServer\Assets\Libraries
+GrowlEnabled=0
+TrayTipEnabled=0
+ConfirmExit=1
+Default_Enabled=0
+Default_ConfirmAction=0
+Default_Recursive=0
+[RecycleBin]
+RBEmpty=0
+RBEmptyTimeValue= 
+RBEmptyTimeLength= 
+[About]
+Version=0.7.1
+[C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug]
+RuleNames=Copy Diversity to Addressbook-example|Copy Diversity to Gui-Example|Copy Diversity to Cura3Dhowtos|Copy Diversity to Cura3D|Copy Diversity To RemoteDebugServer| 
+[Copy Diversity to Addressbook-example]
+Folder=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug\*
+Enabled=1
+ConfirmAction=0
+Recursive=0
+Matches=ALL
+Action=Copy file
+AttribReadOnly=0
+AttribHidden=0
+AttribSystem=0
+Destination=C:\Dev\projects\KjgUnityLibs\UnityLibExamples\AddressBook\Assets\Libraries
+Overwrite=1
+Compress=0
+Subject=Date last opened
+Verb=is in the last
+Object=1
+Units=minutes
+[Copy Diversity to Gui-Example]
+Folder=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug\*
+Enabled=1
+ConfirmAction=0
+Recursive=0
+Matches=ALL
+Action=Copy file
+AttribReadOnly=0
+AttribHidden=0
+AttribSystem=0
+Destination=C:\Dev\projects\KjgUnityLibs\UnityLibExamples\GuiLayout\Assets\Libraries
+Overwrite=1
+Compress=0
+Subject=Date last modified
+Verb=is in the last
+Object=1
+Units=minutes
+[Copy Diversity to Cura3Dhowtos]
+Folder=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug\*
+Enabled=1
+ConfirmAction=0
+Recursive=0
+Matches=ALL
+Action=Copy file
+AttribReadOnly=0
+AttribHidden=0
+AttribSystem=0
+Destination=C:\Dev\projects\Cura3DHowTos\Src\Prototyp\curaConcept\Assets\Libraries
+Overwrite=1
+Compress=0
+Subject=Date last modified
+Verb=is in the last
+Object=1
+Units=minutes
+[Copy Diversity to Cura3D]
+Folder=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug\*
+Enabled=1
+ConfirmAction=0
+Recursive=0
+Matches=ALL
+Action=Copy file
+AttribReadOnly=0
+AttribHidden=0
+AttribSystem=0
+Destination=C:\Dev\projects\cura3D\Src\Prototyp\curaConcept\Assets\Libraries
+Overwrite=1
+Compress=0
+Subject=Date last modified
+Verb=is in the last
+Object=1
+Units=minutes
+[Copy Diversity To RemoteDebugServer]
+Folder=C:\Dev\projects\KjgUnityLibs\Libraries\bin\Debug\*
+Enabled=1
+ConfirmAction=0
+Recursive=0
+Matches=ALL
+Action=Copy file
+AttribReadOnly=0
+AttribHidden=0
+AttribSystem=0
+Destination=C:\Dev\projects\KjgUnityLibs\RemoteDebugServer\Assets\Libraries
+Overwrite=1
+Compress=0
+Subject=Date last modified
+Verb=is in the last
+Object=1
+Units=minutes

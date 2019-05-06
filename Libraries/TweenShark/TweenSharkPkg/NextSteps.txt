@@ -1,0 +1,25 @@
+﻿
+- overwirte handling in TweenedObject
+
+ERLEDIGT
+========
+
+20.02.2012
+
+- wir müssen zwischen TweenedObject und den einzelnen noch eine Schicht einziehen (Instanz von TweenShark)
+	
+	-> kann auch gleich die Zeit Berechnung machen 
+		-> dann kann das aus den Tweenern raus
+		-> und die Easefunctionen können komplett mit Floats arbeiten, wenn der Tweener nur noch die verstrichene Zeit zwischen 0 und 1 bekommt.
+		-> Tweener.Tick(float deltaTime)
+		-> der Tweener muss auch nicht mehr unterscheiden, ob die Zeit abgelaufen ist oder nicht
+		-> das macht alles die Zwischenklasse
+
+- TweenShark.To soll eine Instanz von TweenShark zurückgeben. Damit bekommt man den aktuelle Tween zu fassen
+
+-> das brauchen wir für die Events (OnStart, OnUpdate, OnComplete)
+
+(brauchen wir doch nicht mehr):
+- für die interne Verarbeitung brauchen wir Kopien der Tweens
+	-> so kann der User seine TweenShark instanzen aufheben und wieder benutzen
+	-> ohne die Kopie bekommt der Nutzer aus seiner Instanz die einzelnen Tweener rausgelöscht, wenn es zu einen overwrite kommt 

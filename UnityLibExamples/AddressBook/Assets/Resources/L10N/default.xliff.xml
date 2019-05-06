@@ -1,0 +1,31 @@
+<xliff version="1.2">
+  <file original="hello.txt" source-language="en" target-language="de" datatype="plaintext">
+    <body>
+      <group id="list">
+        <trans-unit id="headline">
+          <source>Contact List</source>
+          <target>Kontaktliste</target>
+        </trans-unit>
+      </group>
+
+      <group id="details">
+        <trans-unit id="firstName">
+          <source>First Name</source>
+          <target>Vorname</target>
+        </trans-unit>
+        <trans-unit id="lastName">
+          <source>Last Name</source>
+          <target>Nachname</target>
+        </trans-unit>
+        <trans-unit id="phone">
+          <source>Phone</source>
+          <target>Telefon</target>
+        </trans-unit>
+        <trans-unit id="email">
+          <source>email</source>
+          <target>Email</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
